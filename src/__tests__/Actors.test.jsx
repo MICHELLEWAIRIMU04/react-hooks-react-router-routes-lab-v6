@@ -27,7 +27,7 @@ const actors = [
 ];
 
 const router = createMemoryRouter(routes, {
-  initialEntries: [`/actors`],
+  initialEntries: ['/actors'],
   initialIndex: 0
 })
 
@@ -43,7 +43,7 @@ test("renders without any errors", () => {
 
 test("renders 'Actors Page' inside of the <h1 />", () => {
   render(<RouterProvider router={router}/>);
-  const h1 = screen.queryByText(/Actors Page/);
+  const h1 = screen.queryByText('/Actors Page/');
   expect(h1).toBeInTheDocument();
   expect(h1.tagName).toBe("H1");
 });
@@ -77,3 +77,4 @@ test("renders the <NavBar /> component", () => {
   );
   expect(document.querySelector(".navbar")).toBeInTheDocument();
 });
+

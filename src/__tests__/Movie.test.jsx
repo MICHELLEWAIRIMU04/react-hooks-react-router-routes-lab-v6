@@ -45,10 +45,12 @@ test("renders a span for each genre",  () => {
 
 test("renders the <NavBar /> component", async () => {
   const router = createMemoryRouter(routes, {
-    initialEntries: [`/movie/1`]
+    initialEntries: [/movie/1]
   })
   render(
       <RouterProvider router={router}/>
   );
   expect(await screen.findByRole("navigation")).toBeInTheDocument();
 });
+
+

@@ -33,4 +33,5 @@ test("renders the <NavBar /> component", () => {
       <RouterProvider router={router}/>
   );
   expect(document.querySelector(".navbar")).toBeInTheDocument();
-});
+})
+
