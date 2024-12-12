@@ -7,7 +7,7 @@ const router = createMemoryRouter(routes)
 
 test("renders 'Home Page' inside of an <h1 />", () => {
   render(<RouterProvider router={router}/>);
-  const h1 = screen.queryByText(/Home Page/);
+  const h1 = screen.queryByText("/Home Page/");
   expect(h1).toBeInTheDocument();
   expect(h1.tagName).toBe("H1");
 });
@@ -22,7 +22,7 @@ test("Displays a list of movie titles", async () =>{
 
 test("Displays links for each associated movie", async () =>{
   render(<RouterProvider router={router}/>);
-  const linkList = await screen.findAllByText(/View Info/);
+  const linkList = await screen.findAllByText("/View Info/");
   expect(linkList.length).toBeGreaterThan(2);
   expect(linkList[0].href.split("/").slice(3).join("/")).toBe("movie/1");
 })

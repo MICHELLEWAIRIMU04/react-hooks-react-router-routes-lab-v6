@@ -5,13 +5,15 @@ import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <nav>
+    <div className='navbar'>
+      <nav>
       <ul>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/directors">Directors</NavLink></li>
         <li><NavLink to="/actors">Actors</NavLink></li>
       </ul>
     </nav>
+    </div>
   );
 };
 

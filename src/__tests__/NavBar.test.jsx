@@ -18,39 +18,38 @@ test('wraps content in a div with "navbar" class', () => {
   expect(container.querySelector(".navbar")).toBeInTheDocument();
 });
 
-test("renders a Home <NavLink>", async () => {
-  const a = screen.queryByText(/Home/);
+test("renders a Home <NavLink>", () => {
+  const link = screen.getByText("Home");
 
-  expect(a).toBeInTheDocument();
-  expect(a.tagName).toBe("A");
-  expect(a.href).toContain("/");
+  expect(link).toBeInTheDocument();
+  expect(link.tagName).toBe("A");
+  expect(link.href).toContain("/");
 
-  fireEvent.click(a, { button: 0 });
+  fireEvent.click(link);
 
-  expect(a.classList).toContain("active");
+  expect(link.classList).toContain("active");
 });
 
-test("renders a Actors <NavLink>", async () => {
-  const a = screen.queryByText(/Actors/);
+test("renders an Actors <NavLink>", () => {
+  const link = screen.getByText("Actors");
 
-  expect(a).toBeInTheDocument();
-  expect(a.tagName).toBe("A");
-  expect(a.href).toContain("/");
+  expect(link).toBeInTheDocument();
+  expect(link.tagName).toBe("A");
+  expect(link.href).toContain("/actors");
 
-  fireEvent.click(a, { button: 0 });
+  fireEvent.click(link);
 
-  expect(a.classList).toContain("active");
+  expect(link.classList).toContain("active");
 });
 
-test("renders a Directors <NavLink>", async () => {
-  const a = screen.queryByText(/Directors/);
+test("renders a Directors <NavLink>", () => {
+  const link = screen.getByText("Directors");
 
-  expect(a).toBeInTheDocument();
-  expect(a.tagName).toBe("A");
-  expect(a.href).toContain("/");
+  expect(link).toBeInTheDocument();
+  expect(link.tagName).toBe("A");
+  expect(link.href).toContain("/directors");
 
-  fireEvent.click(a, { button: 0 });
+  fireEvent.click(link);
 
-  expect(a.classList).toContain("active");
+  expect(link.classList).toContain("active");
 });
-

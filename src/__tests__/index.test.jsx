@@ -3,8 +3,6 @@ import { RouterProvider, createMemoryRouter, MemoryRouter} from "react-router-do
 import { render, screen } from "@testing-library/react";
 import routes from "../routes";
 
-
-
 test('renders the Home component on route "/"', () => {
   const router = createMemoryRouter(routes)
   render(
@@ -15,7 +13,7 @@ test('renders the Home component on route "/"', () => {
 
 test('renders the Actors component on route "/actors"', () => {
     const router = createMemoryRouter(routes, {
-        initialEntries: ['http://localhost:4000/actors']
+        initialEntries: ["/actors"]
     })
   render(
     <RouterProvider router={router}/>
@@ -25,28 +23,28 @@ test('renders the Actors component on route "/actors"', () => {
 
 test('renders the Directors component on route "/directors"', () => {
     const router = createMemoryRouter(routes, {
-        initialEntries: ['http://localhost:4000/directors']
+        initialEntries: ["/directors"]
     })
   render(
       <RouterProvider router={router}/>
   );
-  expect(screen.queryByText('http://localhost:4000/Directors Page/')).toBeInTheDocument();
+  expect(screen.queryByText('/Directors Page/')).toBeInTheDocument();
 });
 
 test('renders the Movie component on route "/movie/:id"', async () => {
     const id = 1
     const router = createMemoryRouter(routes, {
-        initialEntries: [`http://localhost:4000/movie/${id}`]
+        initialEntries: [`/movie/${id}`]
     })
   render(
     <RouterProvider router={router}/>
 );
-  expect(await screen.findByText('http://localhost:4000/Doctor Strange/')).toBeInTheDocument();
+  expect(await screen.findByText('/Doctor Strange/')).toBeInTheDocument();
 });
 
 test("renders an error page when given a bad URL", () =>{
   const router = createMemoryRouter(routes, {
-      initialEntries: ["http://localhost:4000/bad-route"]
+      initialEntries: ["/bad-route"]
   })
   render(
       <RouterProvider router={router} />
